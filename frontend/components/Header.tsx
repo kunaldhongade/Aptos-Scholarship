@@ -14,7 +14,7 @@ export function Header() {
       <div className="flex gap-2 items-center">
         <>
           <Link className={buttonVariants({ variant: "link" })} to={"/Create-Scholarship"}>
-            Create Scholarship
+            Create
           </Link>
           <Link className={buttonVariants({ variant: "link" })} to={"/Apply"}>
             Apply here
