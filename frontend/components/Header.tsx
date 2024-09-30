@@ -13,10 +13,10 @@ export function Header() {
 
       <div className="flex gap-2 items-center">
         <>
-          <Link className={buttonVariants({ variant: "link" })} to={"/Create-Scholarship"}>
+          <Link className={buttonVariants({ variant: "link" })} to={"/create-scholarship"}>
             Create
           </Link>
-          <Link className={buttonVariants({ variant: "link" })} to={"/Apply"}>
+          <Link className={buttonVariants({ variant: "link" })} to={"/apply"}>
             Apply here
           </Link>
         </>
