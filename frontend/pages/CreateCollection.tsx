@@ -1,7 +1,7 @@
 // External packages
 import { isAptosConnectWallet, useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // Internal utils
 import { aptosClient } from "@/utils/aptosClient";
 // Internal components
