@@ -1,5 +1,5 @@
 // External packages
-import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import { isMobile, useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // Internal utils
@@ -451,11 +451,17 @@ export function CreateCollection() {
               </Select>
             </Form.Item>
             <Form.Item name="end_time" label="End Time" rules={[{ required: true }]}>
-              <DatePicker showTime disabledDate={disabledDate} disabledTime={disabledDateTime} className="w-full" />
+              <DatePicker
+                showTime={isMobile() ? false : true}
+                disabledDate={disabledDate}
+                disabledTime={disabledDateTime}
+                getPopupContainer={(trigger) => trigger.parentElement || document.body}
+                popupClassName="max-w-full sm:max-w-lg"
+                className="w-full"
+              />
             </Form.Item>
-
             <Form.Item>
-              <Button variant="submit" size="lg" className="text-base">
+              <Button variant="submit" size="lg" className="text-base w-full" type="submit">
                 Create Scholarship
               </Button>
             </Form.Item>

@@ -25,7 +25,7 @@ export const LaunchpadHeader: FC<LaunchpadHeaderProps> = ({ title }) => {
           </Link>
         ) : (
           <Link className={buttonVariants({ variant: "link" })} to={"/Apply"}>
-            Apply
+            Apply here
           </Link>
         )}
 
