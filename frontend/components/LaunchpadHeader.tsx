@@ -17,15 +17,15 @@ export const LaunchpadHeader: FC<LaunchpadHeaderProps> = ({ title }) => {
 
       <div className="flex gap-2 items-center">
         <Link className={buttonVariants({ variant: "link" })} to={"/"}>
-          Home Page
+          Home
         </Link>
         {location.pathname === "/Apply" ? (
           <Link className={buttonVariants({ variant: "link" })} to={"/Create-Scholarship"}>
-            Create Scholarship
+            Create Scholarships
           </Link>
         ) : (
           <Link className={buttonVariants({ variant: "link" })} to={"/Apply"}>
-            Apply for Scholarship
+            Apply to Scholarship
           </Link>
         )}
 
