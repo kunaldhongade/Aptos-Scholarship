@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/
 import { Input } from "@/components/ui/input";
 import { WarningAlert } from "@/components/ui/warning-alert";
 // Entry functions
-import { IS_PROD, MODULE_ADDRESS } from "@/constants";
+import { MODULE_ADDRESS } from "@/constants";
 import { InputViewFunctionData } from "@aptos-labs/ts-sdk";
 import { DatePicker, Form, message, Select, Table } from "antd";
 import moment from "moment";
@@ -22,8 +22,6 @@ export function CreateCollection() {
   const { account, wallet, signAndSubmitTransaction } = useWallet();
 
   // If we are on Production mode, redierct to the public mint page
-  const navigate = useNavigate();
-  if (IS_PROD) navigate("/", { replace: true });
 
   // Collection data entered by the user on UI
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
