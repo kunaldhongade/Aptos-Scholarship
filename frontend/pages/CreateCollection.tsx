@@ -37,7 +37,7 @@ export function CreateCollection() {
     fetchBalance();
     fetchAllScholarships();
     fetchAllScholarshipsCreatedByAddress();
-  }, [account]);
+  }, []);
 
   interface Scholarship {
     name: string;
