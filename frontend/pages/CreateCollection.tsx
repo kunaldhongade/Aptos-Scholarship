@@ -1,5 +1,5 @@
 // External packages
-import { isAptosConnectWallet, useWallet } from "@aptos-labs/wallet-adapter-react";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // Internal utils
@@ -9,7 +9,6 @@ import { LaunchpadHeader } from "@/components/LaunchpadHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { WarningAlert } from "@/components/ui/warning-alert";
 // Entry functions
 import { MODULE_ADDRESS } from "@/constants";
 import { InputViewFunctionData } from "@aptos-labs/ts-sdk";
@@ -19,14 +18,9 @@ const { Column } = Table;
 
 export function CreateCollection() {
   // Wallet Adapter provider
-  const { account, wallet, signAndSubmitTransaction } = useWallet();
-
-  // If we are on Production mode, redierct to the public mint page
-
-  // Collection data entered by the user on UI
+  const { account, signAndSubmitTransaction } = useWallet();
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
   const [createdScholarships, setCreatedScholarships] = useState<Scholarship[]>([]);
-
   const [balance, setBalance] = useState<number>(0);
   const [transactionHash, setTransactionHash] = useState<any>(null);
   const [scholarshipId, setScholarshipId] = useState<number>(0);
@@ -109,17 +103,12 @@ export function CreateCollection() {
           functionArguments: [],
         },
       });
-
       message.success("Balance initialized successfully!");
-
       await aptosClient().waitForTransaction({ transactionHash: response.hash });
-
       setTransactionHash(response.hash);
-
       console.log("Balance initialized!");
     } catch (error) {
       if (typeof error === "object" && error !== null && "code" in error && (error as { code: number }).code === 4001) {
-        // Standard error code for user rejection
         console.error("Transaction rejected by user. You Already Initialized Balance");
         message.error("Transaction rejected by user. You Already Initialized Balance");
       } else {
@@ -139,9 +128,7 @@ export function CreateCollection() {
       const datePicker = values.end_time.toString();
       const timestamp = Date.parse(datePicker);
       const end_time = timestamp / 1000;
-
       const scholarship_id = 1000 + scholarshipId;
-
       const transaction = await signAndSubmitTransaction({
         sender: account?.address,
         data: {
@@ -265,7 +252,6 @@ export function CreateCollection() {
     }
   };
 
-  // Fetch account balance
   const fetchBalance = async () => {
     try {
       const result = await aptosClient().view({
@@ -324,10 +310,9 @@ export function CreateCollection() {
         throw new Error("Transaction hash is undefined");
       }
       message.success("Scholarship has been Distributed!");
-      fetchAllScholarships(); // Refresh scholarships
+      fetchAllScholarships();
     } catch (error) {
       if (typeof error === "object" && error !== null && "code" in error && (error as { code: number }).code === 4001) {
-        // Standard error code for user rejection
         message.error("Transaction rejected by user.");
       } else {
         if (error instanceof Error) {
@@ -375,7 +360,6 @@ export function CreateCollection() {
       fetchAllScholarships();
     } catch (error) {
       if (typeof error === "object" && error !== null && "code" in error && (error as { code: number }).code === 4001) {
-        // Standard error code for user rejection
         console.error("Transaction rejected by user.");
       } else {
         if (error instanceof Error) {
@@ -394,15 +378,8 @@ export function CreateCollection() {
   return (
     <>
       <LaunchpadHeader title="Create Scholarships" />
-
       <div className="flex flex-col md:flex-row items-start justify-between px-4 py-2 gap-4 max-w-screen-xl mx-auto">
         <div className="w-full md:w-2/3 flex flex-col gap-y-4 order-2 md:order-1">
-          {wallet && isAptosConnectWallet(wallet) && (
-            <WarningAlert title="Wallet not supported">
-              Google account is not supported when creating a NFT collection. Please use a different wallet.
-            </WarningAlert>
-          )}
-
           <Card>
             <CardHeader>
               <CardDescription>Necessary functions to create scholarships only once per account</CardDescription>
