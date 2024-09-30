@@ -1,0 +1,12 @@
+[package]
+name = "ScholarshipPlatform"
+version = "0.0.0"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework", rev = "mainnet" }
+
+[addresses]
+my_addrx = "5fbab942388be12bc96e623fcc22d7c71bd76bede6a0b828de4c351e7aebcc1e"
+std = "0x1"
+donor_addrx="0xda9c8cb7b5536700f36dd6fbfa4f8dce2ca43a519782bd29e0112ac19d12bd1e"
+applicant_addrx="0xda9c8cb7b5536700f36dd6fbfa4f8dce2ca43a519782bd29e0112ac19d12bd1e"
