@@ -8,32 +8,20 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 
-import { useGetCollectionData } from "@/hooks/useGetCollectionData";
-
 import { Header } from "@/components/Header";
 import Hero from "./components/Hero";
 
-import { Layout, Spin } from "antd";
+import { Layout } from "antd";
 import "../../App.css"; // Create a separate CSS file for styling if needed.
 
 const { Footer } = Layout;
 
 export function Mint() {
-  const { isLoading } = useGetCollectionData();
-
   const queryClient = useQueryClient();
   const { account } = useWallet();
   useEffect(() => {
     queryClient.invalidateQueries();
   }, [account, queryClient]);
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <Spin size="large" tip="Loading..." />
-      </div>
-    );
-  }
 
   return (
     <>
