@@ -1,16 +1,13 @@
 import { LaunchpadHeader } from "@/components/LaunchpadHeader";
-// import { Image } from "@/components/ui/image";
-// import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
-import { IS_PROD, MODULE_ADDRESS } from "@/constants";
+import { MODULE_ADDRESS } from "@/constants";
 import { aptosClient } from "@/utils/aptosClient";
 import { InputViewFunctionData } from "@aptos-labs/ts-sdk";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Form, Input, List, message, Select, Table } from "antd";
+import "dotenv/config";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 const { Column } = Table;
 
 interface Scholarship {
@@ -34,13 +31,8 @@ interface ApplyScholarship {
 export function MyCollections() {
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
   const [appliedScholarships, setAppliedScholarships] = useState<{ appliedScholarshipIDS: string }[] | null>(null);
-  // const collections: Array<GetCollectionDataResponse> = useGetCollections();
 
   const { account, signAndSubmitTransaction } = useWallet();
-
-  // If we are on Production mode, redierct to the mint page
-  const navigate = useNavigate();
-  if (IS_PROD) navigate("/", { replace: true });
 
   useEffect(() => {
     fetchAllScholarships();
