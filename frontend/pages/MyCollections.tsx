@@ -86,15 +86,7 @@ export function MyCollections() {
         },
       });
 
-      console.log(transaction?.hash);
-      console.log(transaction);
-      if (transaction?.hash) {
-        const transactionResult = await aptosClient().waitForTransaction(transaction.hash);
-        console.log(transactionResult);
-        console.log("Successfully Applied To Scholarship!");
-      } else {
-        throw new Error("Transaction hash is undefined");
-      }
+      console.log("Transaction:", transaction);
       message.success(`Successfully To Scholarship! ${values.scholarship_id}`);
 
       fetchAllScholarships(); // Refresh scholarships
@@ -111,7 +103,6 @@ export function MyCollections() {
         console.error("Transaction Error:", error);
       }
       console.log("Error applying scholarship.", error);
-      message.error("Error applying scholarship.");
     }
   };
 
@@ -139,9 +130,9 @@ export function MyCollections() {
         message.error("Transaction rejected by user.");
       } else {
         if (error instanceof Error) {
-          message.error(`Transaction failed: ${error.message}`);
+          console.error(`Transaction failed: ${error.message}`);
         } else {
-          message.error("Transaction failed: Unknown error");
+          console.error("Transaction failed: Unknown error");
         }
         console.error("Transaction Error:", error);
       }

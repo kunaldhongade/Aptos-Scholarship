@@ -118,8 +118,6 @@ export function CreateCollection() {
 
       setTransactionHash(response.hash);
 
-      message.success(`https://explorer.aptoslabs.com/txn/${transactionHash}?network=testnet`);
-
       console.log("Balance initialized!");
     } catch (error) {
       if (typeof error === "object" && error !== null && "code" in error && (error as { code: number }).code === 4001) {
