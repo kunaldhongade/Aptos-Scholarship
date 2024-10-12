@@ -5,14 +5,14 @@ import Placeholder3 from "@/assets/placeholders/bear-3.png";
 export const config: Config = {
   // Removing one or all of these socials will remove them from the page
   socials: {
-    twitter: "https://twitter.com/kunaldhongade",
+    twitter: "https://twitter.com/",
     discord: "https://discord.com",
-    homepage: "https://kunaldhongade.vercel.app",
+    homepage: "/",
   },
 
   defaultCollection: {
-    name: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris congue convallis augue in pharetra.",
+    name: "Scholarship Programs",
+    description: "A blockchain-powered platform for managing transparent and secure scholarship programs.",
     image: Placeholder1,
   },
 
@@ -29,20 +29,20 @@ export const config: Config = {
     title: "Our Team",
     members: [
       {
-        name: "Kunal",
+        name: "Alex",
         role: "Blockchain Developer",
         img: Placeholder1,
         socials: {
-          twitter: "https://twitter.com/kunaldhongade",
+          twitter: "https://twitter.com",
         },
       },
       {
-        name: "Soham",
+        name: "Jordan",
         role: "Marketing Specialist",
         img: Placeholder2,
       },
       {
-        name: "Amrita",
+        name: "Taylor",
         role: "Community Manager",
         img: Placeholder3,
         socials: {
@@ -57,29 +57,29 @@ export const config: Config = {
 
     questions: [
       {
-        title: "Is this project is Free for creator and applicant?",
+        title: "Is this project free for creators and applicants?",
         description:
-          "Yesss! This project is completely Free to use and you can create as many scholarships as you want.",
+          "Yes! This project is completely free to use, and you can create as many scholarships as you want.",
       },
       {
-        title: "How To Create Scholarships brief info?",
+        title: "How to create scholarships?",
         description:
-          "To Create Scholarship You first Need to initialized scholarships from Scholarship Provider Dashboard and then you can create scholarships. by filling the form and submitting it. Make sure to fill the form correctly it not reversible.",
+          "To create a scholarship, first, initialize the scholarship from the Scholarship Provider Dashboard. Then you can create scholarships by filling out the form and submitting it. Make sure to fill the form correctly, as it is not reversible.",
       },
       {
-        title: "How Distribution of scholarship works?",
+        title: "How does the distribution of scholarships work?",
         description:
-          "Its really simple that you thing!, Once you successfully applied to scholarship and your GPA is above the required GPA you will get the scholarship amount in your account.",
+          "It's really simple! Once you successfully apply for a scholarship and your GPA is above the required threshold, you will receive the scholarship amount in your account.",
       },
       {
-        title: "How how can i get my money back after scholarship?",
+        title: "Can I get my money back after the scholarship distribution?",
         description:
-          "You will get your full refund if you close your scholarship or after distribution of scholarship you will get remaining funds.",
+          "You will receive your full refund if you close the scholarship or after the distribution of the scholarship, the remaining funds will be returned to you.",
       },
       {
-        title: "What if I want to close scholarship due to some reason?",
+        title: "What if I want to close a scholarship for some reason?",
         description:
-          "We kept that in our mind while building this awesome project you can close your scholarships you have created and after that you will get your funds back to your account.",
+          "We anticipated this need when building the platform. You can close any scholarships you've created, and once closed, the remaining funds will be returned to your account.",
       },
     ],
   },

@@ -378,8 +378,8 @@ export function CreateCollection() {
   return (
     <>
       <LaunchpadHeader title="Create Scholarships" />
-      <div className="flex flex-col md:flex-row items-start justify-between px-4 py-2 gap-4 max-w-screen-xl mx-auto">
-        <div className="w-full md:w-2/3 flex flex-col gap-y-4 order-2 md:order-1">
+      <div className="flex flex-col items-center justify-center px-4 py-2 gap-4 max-w-screen-xl mx-auto">
+        <div className="w-full flex flex-col gap-y-4">
           <Card>
             <CardHeader>
               <CardDescription>Necessary functions to create scholarships only once per account</CardDescription>
@@ -551,20 +551,6 @@ export function CreateCollection() {
                   </Button>
                 </Form.Item>
               </Form>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="w-full md:w-1/3 order-1 md:order-2">
-          <Card>
-            <CardHeader className="body-md-semibold">Learn More</CardHeader>
-            <CardContent>
-              <Link
-                to="https://github.com/kunaldhongade/Aptos-Scholarship"
-                className="body-sm underline"
-                target="_blank"
-              >
-                Find out more about the Platform
-              </Link>
             </CardContent>
           </Card>
         </div>
