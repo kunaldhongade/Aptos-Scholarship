@@ -1,111 +1,222 @@
-# Scholarship Platform Frontend
+# 🚀 Scholarship Platform - Frontend
 
-This project is the frontend interface for the **StudyScholarships** smart contract built on the Aptos blockchain. It allows users to create, view, apply for, and distribute scholarships in a decentralized way. The project is developed using **React** and **TypeScript**, with **Ant Design** for the user interface and **Aptos SDK** for blockchain interactions.
+Welcome to the **Scholarship Platform** frontend, a decentralized application built on the **Aptos Blockchain**. This platform empowers donors to create and distribute scholarships while allowing students to apply transparently. All interactions are securely managed via smart contracts on the blockchain.
 
-## Features
+---
 
-- **Create Scholarships**: Donors can create scholarships by specifying the amount, eligibility criteria, and duration.
-- **View Scholarships**: Applicants can browse available scholarships, including detailed information about each one.
-- **Apply for Scholarships**: Eligible students can apply for scholarships by submitting their academic information.
-- **Distribute Scholarships**: Donors can distribute funds to qualified recipients.
-- **Emergency Close**: Donors can close a scholarship and withdraw remaining funds if needed.
+## 🔗 Links
 
-## Prerequisites
+- **Live Demo**: [Scholarship Platform](https://aptos-scholarship.vercel.app/)
+- **Smart Contract Explorer**: [Aptos Explorer](https://explorer.aptoslabs.com/account/0x25c8f2d9f9f8da2e858ce241b17fc32b9a157977dd1c8089b39115a5c459b4e7/modules/code/ScholarshipPlatform?network=testnet)
 
-Ensure you have the following installed before running the project:
+---
 
-- **Node.js** (v14.x or later)
-- **npm** or **yarn** (for dependency management)
-- **Aptos-compatible wallet** (e.g., Petra Wallet) for interacting with the blockchain
+## ✨ Key Features
 
-## Wallet Setup
+- **Create Scholarships**: Donors create scholarships by specifying eligibility criteria, amounts, and duration.
+- **View Scholarships**: Applicants can explore available scholarships with detailed information.
+- **Apply for Scholarships**: Eligible students can apply by submitting relevant academic details.
+- **Distribute Scholarships**: Donors can disburse funds to qualified recipients seamlessly.
+- **Emergency Close**: Donors have the option to close scholarships early and withdraw remaining funds.
 
-Make sure your Aptos-compatible wallet is set to **Devnet** for development purposes:
+---
 
-1. Install **Petra Wallet** or another Aptos-compatible wallet.
-2. Switch the wallet network to **Devnet**.
-3. Use the **Aptos Faucet** to fund your account with test tokens.
+## 📋 Prerequisites
 
-## Getting Started
+Ensure the following tools are installed:
 
-### 1. Install Dependencies
+- **Node.js** (v14 or higher)
+- **npm** or **yarn**
+- **Aptos Wallet** (e.g., **Petra Wallet**) for blockchain interactions
 
-Run the following command to install all the necessary packages:
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-repo/scholarship-platform.git
+cd scholarship-platform
+```
+
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Configure the Environment
-
-Create a `.env` file and specify your **Aptos Devnet** or **Testnet** endpoint URLs:
+or
 
 ```bash
-VITE_APP_NETWORK=testnet
-VITE_MODULE_ADDRESS="0x5fbab942388be12bc96e623fcc22d7c71bd76bede6a0b828de4c351e7aebcc1e"
+yarn install
 ```
 
-### 3. Run the Development Server
+### 3. Configure Environment Variables
 
-Launch the application locally using the command:
+Create a `.env` file in the project root with the following variables:
+
+```bash
+PROJECT_NAME=StudyScholarships
+VITE_APP_NETWORK=testnet
+VITE_MODULE_ADDRESS=0x25c8f2d9f9f8da2e858ce241b17fc32b9a157977dd1c8089b39115a5c459b4e7
+```
+
+### 4. Run the Development Server
+
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Once the server starts, open your browser and navigate to `http://localhost:5174`.
+The app will be available at `http://localhost:5173`.
 
-## Interacting with the Application
+### 5. Deploy the Smart Contract
 
-1. **Connect Wallet**: On the landing page, click "Connect Wallet" and connect your **Petra Wallet** (or any Aptos-compatible wallet).
-2. **Create a Scholarship**: Navigate to the "Create Scholarship" section, fill in the scholarship details (e.g., name, amount per applicant, GPA criteria, field of study), and submit. This will create a scholarship on the blockchain.
-3. **View Scholarships**: Browse through the list of available scholarships and see the details for each.
-4. **Apply for a Scholarship**: As a student, you can apply to scholarships by providing your GPA and field of study.
-5. **Distribute Scholarships**: Donors can distribute the scholarship amount to qualified recipients.
-6. **Emergency Close**: Donors can close the scholarship early and withdraw any remaining funds.
+To deploy the smart contract:
 
-## Tech Stack
+1.  Install **Aptos CLI**.
+2.  Update the **Move.toml** file with your wallet address:
 
-- **React** (JavaScript library for building user interfaces)
-- **TypeScript** (Strongly typed JavaScript)
-- **Ant Design** (UI library for elegant and responsive components)
-- **Tailwind CSS** (Utility-first CSS framework for responsive design)
-- **Aptos SDK** (Aptos blockchain interaction)
+        - Add you Wallet Address from Petra here
 
-## Smart Contract Overview
+    ```bash
+    donor_addrx="0xda9c8cb7b5536700f36dd6fbfa4f8dce2ca43a519782bd29e0112ac19d12bd1e"
+    applicant_addrx="0xda9c8cb7b5536700f36dd6fbfa4f8dce2ca43a519782bd29e0112ac19d12bd1e"
+    ```
 
-The **StudyScholarships** smart contract manages the creation and distribution of scholarships. Below is a summary of key functions.
+3.  Create your new Address for Deployment
+
+    ```bash
+    aptos init
+    ```
+
+    - Add your Account addr here for Deployment
+
+    ```bash
+    my_addrx = "25c8f2d9f9f8da2e858ce241b17fc32b9a157977dd1c8089b39115a5c459b4e7"
+    ```
+
+4.  Compile and publish the contract:
+
+    ```bash
+    aptos move compile
+    aptos move publish
+    ```
+
+---
+
+## 🛠 How to Use the Platform
+
+### 1. Connect Wallet
+
+Connect your **Aptos Wallet** (e.g., Petra Wallet) to create, apply, and manage scholarships.
+
+### 2. Create a Scholarship (For Donors)
+
+1. Navigate to **Create Scholarship**.
+2. Fill in details such as:
+   - Scholarship Name
+   - Amount per applicant
+   - Eligibility Criteria (GPA, field of study)
+   - Duration
+3. Submit the form to create the scholarship.
+
+### 3. View Scholarships
+
+Browse the **Scholarships** section to explore available opportunities with details about eligibility, amount, and duration.
+
+### 4. Apply for a Scholarship (For Students)
+
+1. Select the scholarship you want to apply for.
+2. Provide your academic information (GPA, field of study).
+3. Submit your application.
+
+### 5. Distribute Scholarships
+
+Donors can:
+
+1. Navigate to **Distribute Scholarships**.
+2. Select the scholarship and disburse the funds to qualified recipients.
+
+### 6. Emergency Close
+
+Donors can:
+
+1. Close the scholarship early from the **Manage Scholarships** section.
+2. Withdraw any remaining funds securely.
+
+---
+
+## 📊 Scripts
+
+- **`npm run dev`**: Start the development server.
+- **`npm run build`**: Build the project for production.
+- **`npm test`**: Run unit tests.
+
+---
+
+## 🔍 Dependencies
+
+- **React**: For building the user interface.
+- **TypeScript**: Type-safe JavaScript for enhanced development.
+- **Aptos SDK**: JS/TS SDK for blockchain interaction.
+- **Ant Design / Tailwind CSS**: For responsive UI and modern styling.
+- **Petra Wallet Adapter**: For wallet connection and transactions.
+
+---
+
+## 📚 Smart Contract Overview
+
+### Scholarship Functions
+
+1. **create_scholarship(...)**: Creates a new scholarship with specific criteria and amount.
+2. **apply_for_scholarship(...)**: Allows students to apply for a specific scholarship.
+3. **distribute_scholarship(...)**: Disburses funds to qualified applicants.
+4. **emergency_close_scholarship(...)**: Closes the scholarship and refunds the donor.
 
 ### Token Functions
 
-1. **initialize_balance(user: &signer)**: Initializes a zero balance for the user.
-2. **issue_tokens(user: &signer, amount: u64)**: Issues tokens to a user (typically a donor).
-3. **get_balance(account: address)**: Retrieves the balance of a user.
-4. **transfer_tokens(from: &signer, to: address, amount: u64)**: Transfers tokens between accounts.
-
-### Scholarship Management
-
-1. **initialize_scholarships(user: &signer)**: Initializes a scholarship list for the user.
-2. **create_scholarship(user: &signer, scholarship_id: u64, name: String, amount_per_applicant: u64, total_applicants: u64, criteria_gpa: u64, field_of_study: String, duration: u64)**: Creates a new scholarship.
-3. **apply_for_scholarship(user: &signer, scholarship_id: u64, gpa: u64, field_of_study: String)**: Allows students to apply for a specific scholarship.
-4. **distribute_scholarship(user: &signer, scholarship_id: u64)**: Distributes the scholarship funds to all qualified recipients.
-5. **emergency_close_scholarship(user: &signer, scholarship_id: u64)**: Closes the scholarship and refunds any remaining balance to the donor.
+1. **initialize_balance(...)**: Initializes a zero balance for users.
+2. **issue_tokens(...)**: Issues tokens to donors.
+3. **get_balance(...)**: Retrieves the balance of an account.
+4. **transfer_tokens(...)**: Transfers tokens between accounts.
 
 ### Viewing Functions
 
-1. **view_donor_address_of_scholarship(scholarship_id: u64)**: Returns the donor's address for a specific scholarship.
-2. **view_all_scholarships()**: Retrieves a list of all scholarships.
-3. **view_all_scholarships_created_by_address(account: address)**: Retrieves scholarships created by a specific donor.
-4. **view_all_scholarships_applied_by_address(account: address)**: Retrieves a list of scholarships an applicant has applied to.
+1. **view_all_scholarships(...)**: Lists all available scholarships.
+2. **view_scholarships_by_donor(...)**: Shows scholarships created by a specific donor.
+3. **view_scholarships_applied_by_user(...)**: Displays all scholarships a user has applied for.
 
-## Testing the Platform
+---
 
-- Use the **Aptos Faucet** to fund your test accounts on **Devnet**.
-- Interactions like creating, applying, and distributing scholarships trigger blockchain transactions. Ensure you have enough test tokens for gas fees.
-- Check your wallet for transaction requests when interacting with the platform.
+## 🛡 Security and Transparency
 
-## Additional Notes
+- **Smart Contracts**: Ensure secure transactions and disbursement.
+- **No Intermediaries**: Direct transactions between donors and applicants.
+- **Real-Time Tracking**: Applicants and donors can monitor scholarship status.
 
-- **Responsive Design**: This platform is fully responsive using **Tailwind CSS**. It supports mobile, tablet, and desktop viewports.
-- **Security**: Smart contract interactions, such as creating scholarships and distributing funds, require user signatures via the wallet.
-- **Custom UI**: **Ant Design** provides a user-friendly and polished experience with form validation and pre-designed UI components.
+---
+
+## 🌐 Common Issues and Solutions
+
+1. **Wallet Connection Issues**: Verify the wallet is installed and connected.
+2. **Transaction Failures**: Ensure enough tokens are available for transactions.
+3. **RPC Limits**: Use **third-party RPC providers** like **Alchemy** or **QuickNode** if encountering rate limits.
+
+---
+
+## 🚀 Scaling and Deployment
+
+For deployment on **Vercel** or other platforms:
+
+- Use **third-party RPC providers** for reliable performance.
+- Implement **request throttling** to manage traffic.
+- Utilize **WebSockets** for real-time updates.
+
+---
+
+## 🎉 Conclusion
+
+The **Scholarship Platform** offers a decentralized way to manage scholarships transparently and securely. With blockchain-based operations, donors can create scholarships, students can apply, and funds can be distributed seamlessly. This platform ensures trust, transparency, and easy management of scholarships for all users.
